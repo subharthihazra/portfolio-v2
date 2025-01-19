@@ -16,6 +16,14 @@ type project = {
 };
 const projects: project[] = [
   {
+    name: "Oauth2.0 Client Library",
+    descrption:
+      "Developed a TypeScript OAuth2 client library supporting both client-side and server-side implementations, with Zod for validation, ensuring type safety and robust error handling. Integrated PKCE for secure authorization and ensured compatibility with Kinde, Auth0 and Clerk.",
+    tech: ["Oauth2.0", "Typescript", "PKCE"],
+    repoLink: "https://github.com/subharthihazra/subh-oauth2",
+    liveLink: "https://subh-oauth2-demo2.vercel.app/login",
+  },
+  {
     name: "Cuddly",
     descrption:
       "A one stop platform for all Pet related problems, with the features to rehome and adopt a pet, and know more about pets with a magical touch of AI.",
