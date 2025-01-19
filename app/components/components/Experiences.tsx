@@ -14,7 +14,7 @@ const experiences: experience[] = [
     name: "NoScrubs Inc",
     designation: "Software Development Intern ( Remote )",
     descrption:
-      "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Laudantium dolore libero fuga excepturi ducimus quaerat nihil quam doloremque autem praesentium delectus accusantium, tenetur distinctio, eligendi veritatis officia optio blanditiis voluptatem!",
+      "Implemented OAuth for secure phone number verification, improving user authentication workflows. Integrated Stripe to enable saving and managing user payment methods, streamlining experience. Developed and enhanced core application features using Ruby on Rails for backend and Expo (React Native) for the mobile and web interface.",
     time: "Oct - Dec 2024",
     link: "https://noscrubs.io/",
     tech: ["Ruby on Rails", "React Native (expo)", "Postgresql"],
@@ -23,7 +23,7 @@ const experiences: experience[] = [
     name: "Asambhav",
     designation: "Web Developer Intern ( Remote )",
     descrption:
-      "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Laudantium dolore libero fuga excepturi ducimus quaerat nihil quam doloremque autem praesentium delectus accusantium, tenetur distinctio, eligendi veritatis officia optio blanditiis voluptatem!",
+      "Worked on developing a Chrome extension for generating portfolios from LinkedIn by scraping data, utilizing LLM (OpenAI) for enhanced data processing. Worked on creating another Chrome extension to generate tailored resumes for specific job postings on LinkedIn, leveraging LLM (OpenAI).",
     time: "Apr - Sept 2024",
     link: "https://asambhav.in/",
     tech: [

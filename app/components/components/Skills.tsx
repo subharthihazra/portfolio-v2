@@ -27,6 +27,14 @@ const skills: skillGroup[] = [
       { name: "rust", level: 30 },
     ],
   },
+  {
+    name: "others",
+    skills: [
+      {
+        name: "React Native",
+      },
+    ],
+  },
 ];
 
 export default function Skills() {

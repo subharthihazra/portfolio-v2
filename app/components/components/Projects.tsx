@@ -22,6 +22,7 @@ const projects: project[] = [
     tech: ["Oauth2.0", "Typescript", "PKCE"],
     repoLink: "https://github.com/subharthihazra/subh-oauth2",
     liveLink: "https://subh-oauth2-demo2.vercel.app/login",
+    linkType: "repoLink",
   },
   {
     name: "Cuddly",
