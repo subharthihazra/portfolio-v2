@@ -15,6 +15,9 @@ export default {
           "Segoe UI Symbol",
           "Noto Color Emoji",
         ],
+        agu: ["Agu Display"],
+        suse: ["SUSE"],
+        dmmono: ["DM Mono"]
       },
     },
   },
