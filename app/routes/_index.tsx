@@ -11,8 +11,8 @@ import Hero from "~/components/components/Hero";
 import Projects from "~/components/components/Projects";
 import Skills from "~/components/components/Skills";
 
-export const loader = () => {
-  connectToDatabase();
+export const loader = async () => {
+  await connectToDatabase();
   return json({
     ENV: { resumeUrl: process.env.PUBLIC_RESUME_URL },
   });
