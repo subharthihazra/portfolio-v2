@@ -1,6 +1,7 @@
 import { Form } from "@remix-run/react";
 import { useRef } from "react";
 import { RiSendPlaneFill } from "react-icons/ri";
+import Socials from "./Socials";
 
 export default function Contact({ reset = true }: { reset?: boolean }) {
   const submitRef = useRef<HTMLButtonElement>(null);
@@ -17,7 +18,13 @@ export default function Contact({ reset = true }: { reset?: boolean }) {
   return (
     <div className="mt-16 md:mt-24" id="textme">
       <div className="text-2xl md:text-3xl font-light mx-auto border-b border-y-rose-600 w-fit">
-        Text me
+        {`Let's Connect`}
+      </div>
+      <div className="font-light text-gray-400 mt-8 text-center text-sm md:text-md">
+        {`If you have any inquiries,
+        collaboration proposals, or if you simply want to connect, feel free to
+        reach out. I'm always open to new opportunities (freelance, internship,
+        job). My inbox is always open.`}
       </div>
       <div className="gap-5 mt-8">
         <Form
@@ -55,6 +62,10 @@ export default function Contact({ reset = true }: { reset?: boolean }) {
             </button>
           </div>
         </Form>
+        <div className="font-light text-gray-400 my-6 flex flex-col place-items-center gap-4 text-sm md:text-md">
+          {`Also you can DM in socials or email me`}
+          <Socials />
+        </div>
       </div>
     </div>
   );

@@ -5,6 +5,7 @@ export default function Link({
 }: {
   children: React.ReactNode;
   newtab?: boolean;
+  [key: string]: unknown;
 }) {
   return (
     <a {...(newtab && { target: "_blank" })} {...props}>
