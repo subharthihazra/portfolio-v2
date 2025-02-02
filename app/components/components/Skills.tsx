@@ -60,11 +60,11 @@ function Card({ data }: { data: skillGroup }) {
         {data?.skills?.map((item, i) => (
           <div key={i} className="flex flex-col w-fit">
             <div>{item.name}</div>
-            {item?.level && (
+            {/* {item?.level && (
               <div
-                className="border-b border-gray-500"
+                className={`border-b border-gray-500 w-[${item.level}%]`}
               ></div>
-            )}
+            )} */}
           </div>
         ))}
       </div>
