@@ -62,7 +62,7 @@ function Card({ data }: { data: skillGroup }) {
             <div>{item.name}</div>
             {item?.level && (
               <div
-                className={`border-b border-gray-500 w-[${item.level}%]`}
+                className="border-b border-gray-500"
               ></div>
             )}
           </div>
