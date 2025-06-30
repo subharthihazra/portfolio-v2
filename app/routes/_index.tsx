@@ -51,6 +51,9 @@ export const meta: MetaFunction = () => {
   return [
     { title: "Subharthi Hazra | Portfolio" },
     { name: "description", content: "Welcome to My Portfolio!" },
+    { property: "og:image", content: "https://subharthi.me/api/og" },
+    { property: "og:type", content: "website" },
+    { property: "og:url", content: "https://subharthi.me" },
   ];
 };
 
@@ -59,7 +62,7 @@ export default function Index() {
   const actionData = useActionData<typeof action>();
 
   return (
-    <div className="max-w-3xl mx-6 md:mx-auto">
+    <div className="max-w-3xl px-6 md:mx-auto">
       <Header />
       <Hero data={{ resumeUrl: ENV?.resumeUrl }} />
       <Experiences />
