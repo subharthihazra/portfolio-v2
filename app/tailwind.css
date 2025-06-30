@@ -4,15 +4,23 @@
 
 html,
 body {
-  @apply text-white font-suse custom-background;
+  @apply text-white font-suse custom-background-base;
 }
-.custom-background {
-  background-repeat: no-repeat;
+.custom-background-base {
   background-color: #010b15;
 }
+
+.custom-background {
+  background-repeat: no-repeat;
+}
+
 @media screen and (min-width: 48rem) {
   .custom-background {
-    background-image: radial-gradient(circle at 20% -25%, #9e804d61, transparent 30%),
+    background-image: radial-gradient(
+        circle at 20% -25%,
+        #9e804d61,
+        transparent 30%
+      ),
       radial-gradient(circle at 40% -25%, #aa3f747e, transparent 30%),
       radial-gradient(circle at 60% -25%, #358cbb52, transparent 30%),
       radial-gradient(circle at 80% -25%, #68c77e4c, transparent 30%);
@@ -21,7 +29,11 @@ body {
 
 @media screen and (max-width: 48rem) {
   .custom-background {
-    background-image: radial-gradient(circle at 0% -5%, #9e804d61, transparent 15%),
+    background-image: radial-gradient(
+        circle at 0% -5%,
+        #9e804d61,
+        transparent 15%
+      ),
       radial-gradient(circle at 33.33% -5%, #aa3f747e, transparent 15%),
       radial-gradient(circle at 66.66% -5%, #358cbb52, transparent 15%),
       radial-gradient(circle at 100% -5%, #68c77e4c, transparent 15%);

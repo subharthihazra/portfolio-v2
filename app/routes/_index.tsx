@@ -62,14 +62,16 @@ export default function Index() {
   const actionData = useActionData<typeof action>();
 
   return (
-    <div className="max-w-3xl px-6 md:mx-auto">
-      <Header />
-      <Hero data={{ resumeUrl: ENV?.resumeUrl }} />
-      <Experiences />
-      <Projects />
-      <Skills />
-      <Contact reset={actionData?.message === "success"} />
-      <Footer />
+    <div className="custom-background">
+      <div className="max-w-3xl px-6 md:mx-auto">
+        <Header />
+        <Hero data={{ resumeUrl: ENV?.resumeUrl }} />
+        <Experiences />
+        <Projects />
+        <Skills />
+        <Contact reset={actionData?.message === "success"} />
+        <Footer />
+      </div>
     </div>
   );
 }

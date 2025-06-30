@@ -4,6 +4,8 @@ import {
   Outlet,
   Scripts,
   ScrollRestoration,
+  useRouteError,
+  isRouteErrorResponse,
 } from "@remix-run/react";
 import type { LinksFunction } from "@remix-run/node";
 
@@ -48,4 +50,30 @@ export function Layout({ children }: { children: React.ReactNode }) {
 
 export default function App() {
   return <Outlet />;
+}
+
+export function ErrorBoundary() {
+  const error = useRouteError();
+
+  return isRouteErrorResponse(error) && error.status === 404 ? (
+    <div className="text-center min-h-screen flex flex-col place-content-center px-6">
+      <h1 className="text-5xl font-bold mb-4">404</h1>
+      <p className="text-lg text-slate-300">
+        Why are you here, homie &#128527;?
+      </p>
+      <a
+        href="/"
+        className="mt-6 inline-block text-emerald-400 underline hover:text-emerald-300"
+      >
+        Back to Home
+      </a>
+    </div>
+  ) : (
+    <div className="text-center min-h-screen flex flex-col place-content-center px-6">
+      <h1 className="text-xl font-bold mb-4">Something went wrong</h1>
+      <p className="text-md text-slate-300">
+        {(error instanceof Error && error.message) || "Unknown error."}
+      </p>
+    </div>
+  );
 }
