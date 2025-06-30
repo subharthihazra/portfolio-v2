@@ -57,9 +57,9 @@ export function ErrorBoundary() {
 
   return isRouteErrorResponse(error) && error.status === 404 ? (
     <div className="text-center min-h-screen flex flex-col place-content-center px-6">
-      <h1 className="text-5xl font-bold mb-4">404</h1>
+      <h1 className="text-5xl font-bold mb-4">4&#128527;4</h1>
       <p className="text-lg text-slate-300">
-        Why are you here, homie &#128527;?
+        Why are you here, homie?
       </p>
       <a
         href="/"
