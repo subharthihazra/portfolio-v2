@@ -53,7 +53,7 @@ export default function Experiences() {
 
 function Card({ data }: { data: experience }) {
   return (
-    <div className="text-md md:text-lg font-light flex flex-col gap-2 border-b border-gray-700 border-dashed pb-4">
+    <div className="text-md md:text-lg font-light flex flex-col gap-3 border-b border-gray-700 border-dashed pb-4">
       <div className="flex flex-row justify-between flex-wrap gap-x-4">
         <Link href={data?.link}>
           <div className="flex flex-row justify-between place-items-center gap-2">
@@ -72,7 +72,7 @@ function Card({ data }: { data: experience }) {
       <div className="text-md md:text-lg text-emerald-100">
         {data.designation}
       </div>
-      <div className="text-gray-400 text-sm md:text-base">{data?.descrption}</div>
+      <div className="text-gray-400 text-sm md:text-base text-justify">{data?.descrption}</div>
       <div className="text-white flex flex-row font-dmmono flex-wrap text-xs md:text-sm">
         {data?.tech?.map((item, i) => (
           <>
