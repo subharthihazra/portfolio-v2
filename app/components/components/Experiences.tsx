@@ -72,7 +72,7 @@ function Card({ data }: { data: experience }) {
       <div className="text-md md:text-lg text-emerald-100">
         {data.designation}
       </div>
-      <div className="text-gray-400">{data?.descrption}</div>
+      <div className="text-gray-400 text-sm md:text-base">{data?.descrption}</div>
       <div className="text-white flex flex-row font-dmmono flex-wrap text-xs md:text-sm">
         {data?.tech?.map((item, i) => (
           <>
