@@ -112,7 +112,7 @@ function Card({ data }: { data: project }) {
           </>
         ))}
       </div>
-      <div className="flex flex-row gap-4">
+      <div className="flex flex-row gap-4 flex-wrap">
         {data.repoLink && (
           <LinkIconButton link={data.repoLink} key="link1">
             <FaGithub />

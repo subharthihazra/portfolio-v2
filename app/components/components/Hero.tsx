@@ -19,7 +19,7 @@ export default function Hero({ data }: { data?: { resumeUrl?: string } }) {
         <div>stay in touch</div>
         <Socials />
       </div>
-      <div className="place-items-center flex flex-row gap-8">
+      <div className="place-items-center flex flex-row gap-8 flex-wrap justify-center">
         <TextButton link={data?.resumeUrl}>resume</TextButton>
         <TextButton link="#textme" newtab={false}>
           text me

@@ -4,7 +4,7 @@ import { IoMail } from "react-icons/io5";
 
 export default function Socials() {
   return (
-    <div className="flex flex-row gap-4">
+    <div className="flex flex-row gap-4 flex-wrap justify-center">
       <RoundIconButton link="https://github.com/subharthihazra">
         <FaGithub />
       </RoundIconButton>
