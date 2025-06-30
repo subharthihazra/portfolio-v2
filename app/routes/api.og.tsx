@@ -1,13 +1,14 @@
 import { LoaderFunction } from "@remix-run/node";
 import satori from "satori";
-import { readFileSync } from "fs";
+import { readFileSync, existsSync, writeFile } from "fs";
 import { join } from "path";
 import { Resvg } from "@resvg/resvg-js";
 
 const suseFont = readFileSync(join(process.cwd(), "app/assets/fonts/suse.ttf"));
+const OUTPUT_PATH = join(process.cwd(), "app/assets/og-image.png");
 
-export const loader: LoaderFunction = async () => {
-  const svg = await satori(
+const generateSvg = async () => {
+  return await satori(
     <div
       style={{
         width: "100%",
@@ -17,7 +18,7 @@ export const loader: LoaderFunction = async () => {
         display: "flex",
         flexDirection: "column",
         justifyContent: "center",
-        alignItems:"center",
+        alignItems: "center",
         fontFamily: "Suse",
         color: "#ffffff",
         position: "relative",
@@ -30,7 +31,7 @@ export const loader: LoaderFunction = async () => {
           display: "flex",
           flexDirection: "column",
           zIndex: 1,
-          gap:20
+          gap: 20,
         }}
       >
         <div
@@ -73,13 +74,29 @@ export const loader: LoaderFunction = async () => {
       ],
     }
   );
+};
 
-  const png = new Resvg(svg).render().asPng();
+export const loader: LoaderFunction = async () => {
+  if (!existsSync(OUTPUT_PATH)) {
+    const svg = await generateSvg();
+    const png = new Resvg(svg).render().asPng();
 
-  return new Response(png, {
-    headers: {
-      "Content-Type": "image/png",
-      "Cache-Control": "public, max-age=31536000, immutable",
-    },
-  });
+    void writeFile(OUTPUT_PATH, png, () => {});
+
+    return new Response(png, {
+      headers: {
+        "Content-Type": "image/png",
+        "Cache-Control": "public, max-age=31536000, immutable",
+      },
+    });
+  } else {
+    const imageBuffer = readFileSync(OUTPUT_PATH);
+
+    return new Response(imageBuffer, {
+      headers: {
+        "Content-Type": "image/png",
+        "Cache-Control": "public, max-age=31536000, immutable",
+      },
+    });
+  }
 };
