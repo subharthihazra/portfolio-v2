@@ -54,7 +54,7 @@ export default function Experiences() {
 function Card({ data }: { data: experience }) {
   return (
     <div className="text-md md:text-lg font-light flex flex-col gap-2 border-b border-gray-700 border-dashed pb-4">
-      <div className="flex flex-row justify-between">
+      <div className="flex flex-row justify-between flex-wrap">
         <Link href={data?.link}>
           <div className="flex flex-row justify-between place-items-center gap-2">
             <div key={data.name} className="text-lg md:text-xl">
