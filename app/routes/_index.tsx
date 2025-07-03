@@ -1,6 +1,7 @@
 import { ActionFunction, json, type MetaFunction } from "@remix-run/node";
 import { useActionData, useLoaderData } from "@remix-run/react";
 import axios from "axios";
+import { z } from "zod";
 import { messageModel } from "models/message.server";
 import { connectToDatabase } from "utils/db.server";
 import Contact from "~/components/components/Contact";
@@ -20,24 +21,43 @@ export const loader = async () => {
 
 export const action: ActionFunction = async ({ request }) => {
   const formData = await request.formData();
-  const name = formData.get("yourname");
-  const email = formData.get("youremail");
-  const message = formData.get("yourmessage");
-  // console.log("==>", name, message);
+  const name = formData.get("yourname")?.toString().trim() || "";
+  const email = formData.get("youremail")?.toString().trim() || "";
+  const message = formData.get("yourmessage")?.toString().trim() || "";
 
-  if (message) {
+  console.log("==info>", name, email, message);
+
+  const isAllEmpty = !name && !email && !message;
+
+  if (!isAllEmpty) {
     const response = await messageModel.create({
       name,
       email,
       message,
     });
-    // console.log(response);
+
+    // sends a personal DM to my email via FormSubmit
+
+    const isValidEmail = z.string().email().safeParse(email).success;
+
+    const messageToDM = `${
+      !isValidEmail ? `Email:\n[ ${email} ]\n\n` : ""
+    }${message}`;
+
     try {
-      await axios.post(String(process.env.PRIVATE_MESSAGE_URL), {
-        name,
-        message,
-      });
-      // console.log(data);
+      const { data } = await axios.post(
+        String(process.env.PRIVATE_FORMSUBMIT_URL),
+        {
+          name,
+          ...(isValidEmail && { email }),
+          message: messageToDM,
+          _url: "https://subharthi.me",
+          _subject: "New DM at Portfolio!",
+          _captcha: "false",
+          _template: "box",
+        }
+      );
+      console.log(data);
     } catch (e) {
       console.log(e);
     }

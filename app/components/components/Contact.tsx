@@ -36,13 +36,13 @@ export default function Contact({ reset = true }: { reset?: boolean }) {
           <input
             type="text"
             className="bg-gray-900 border-0 outline-none w-full p-3 text-lg"
-            placeholder="your name"
+            placeholder="your name (optional)"
             name="yourname"
           />
           <input
             type="text"
             className="bg-gray-900 border-0 outline-none w-full p-3 text-lg"
-            placeholder="your email"
+            placeholder="your email (optional)"
             name="youremail"
           />
           <textarea
