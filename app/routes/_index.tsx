@@ -1,5 +1,11 @@
 import { ActionFunction, json, type MetaFunction } from "@remix-run/node";
-import { useActionData, useLoaderData } from "@remix-run/react";
+import {
+  useActionData,
+  useLoaderData,
+  useLocation,
+  useNavigate,
+} from "@remix-run/react";
+import { UAParser } from "ua-parser-js";
 import axios from "axios";
 import { z } from "zod";
 import { messageModel } from "models/message.server";
@@ -11,6 +17,8 @@ import Header from "~/components/components/Header";
 import Hero from "~/components/components/Hero";
 import Projects from "~/components/components/Projects";
 import Skills from "~/components/components/Skills";
+import toast, { Toaster } from "react-hot-toast";
+import { useEffect } from "react";
 
 export const loader = async () => {
   await connectToDatabase();
@@ -25,29 +33,54 @@ export const action: ActionFunction = async ({ request }) => {
   const email = formData.get("youremail")?.toString().trim() || "";
   const message = formData.get("yourmessage")?.toString().trim() || "";
 
-  console.log("==info>", name, email, message);
+  // console.log("==info>", name, email, message);
 
-  const isAllEmpty = !name && !email && !message;
+  let metadata = "";
 
-  if (!isAllEmpty) {
-    const response = await messageModel.create({
-      name,
-      email,
-      message,
+  try {
+    const userAgentHeader = request.headers.get("user-agent") || "";
+    const parser = new UAParser(userAgentHeader);
+    const ua = parser.getResult();
+
+    const ip =
+      request.headers.get("x-forwarded-for") ||
+      request.headers.get("cf-connecting-ip") ||
+      request.headers.get("x-real-ip") ||
+      "unknown";
+
+    metadata = JSON.stringify({
+      ip,
+      userAgent: userAgentHeader,
+      browser: ua.browser.name || "unknown",
+      browserVersion: ua.browser.version || "unknown",
+      os: ua.os.name || "unknown",
+      osVersion: ua.os.version || "unknown",
+      device: ua.device.type || "desktop",
+      submittedAt: new Date().toISOString(),
     });
 
-    // sends a personal DM to my email via FormSubmit
+    // console.log("==meta=>", meta);
 
-    const isValidEmail = z.string().email().safeParse(email).success;
+    const isAllEmpty = !name && !email && !message;
 
-    const messageToDM = `${
-      !isValidEmail ? `Email:\n[ ${email} ]\n\n` : ""
-    }${message}`;
+    if (!isAllEmpty) {
+      const response = await messageModel.create({
+        name,
+        email,
+        message,
+        metadata,
+      });
 
-    try {
-      const { data } = await axios.post(
-        String(process.env.PRIVATE_FORMSUBMIT_URL),
-        {
+      // sends a personal DM to my email via FormSubmit
+
+      const isValidEmail = z.string().email().safeParse(email).success;
+
+      const messageToDM = `${
+        !isValidEmail ? `Email:\n[ ${email} ]\n\n` : ""
+      }${message}`;
+
+      void axios
+        .post(String(process.env.PRIVATE_FORMSUBMIT_URL), {
           name,
           ...(isValidEmail && { email }),
           message: messageToDM,
@@ -55,15 +88,19 @@ export const action: ActionFunction = async ({ request }) => {
           _subject: "New DM at Portfolio!",
           _captcha: "false",
           _template: "box",
-        }
-      );
-      console.log(data);
-    } catch (e) {
-      console.log(e);
+        })
+        .catch((err) => {
+          console.error("Fire-and-forget Axios error:", err);
+        });
+      // console.log(data);
+
+      return json({ message: response ? "success" : "error" });
+    } else {
+      return json({ message: "error" });
     }
-    return json({ message: response ? "success" : "error" });
-  } else {
-    return json({ message: "incomplete" });
+  } catch (e) {
+    console.log("ERROR occurred: ", e);
+    return json({ message: "error" });
   }
 };
 
@@ -80,6 +117,25 @@ export const meta: MetaFunction = () => {
 export default function Index() {
   const { ENV } = useLoaderData<typeof loader>();
   const actionData = useActionData<typeof action>();
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  useEffect(() => {
+    if (actionData?.message === "success") {
+      toast.success("Text Sent!", {
+        style: {
+          border: "1px solid #713200",
+        },
+        iconTheme: {
+          primary: "#10b981",
+          secondary: "white",
+        },
+      });
+
+      const hash = location.hash;
+      navigate(`/${hash}`, { replace: true, preventScrollReset: true });
+    }
+  }, [actionData, navigate, location]);
 
   return (
     <div className="custom-background">
@@ -91,6 +147,7 @@ export default function Index() {
         <Skills />
         <Contact reset={actionData?.message === "success"} />
         <Footer />
+        <Toaster position="bottom-right" reverseOrder={false} />
       </div>
     </div>
   );

@@ -11,9 +11,9 @@ const messageSchema = new Schema({
   },
   message: {
     type: String,
-    required: true,
     default: "",
   },
+  metadata: { type: String, default: "" },
   timestamp: {
     type: Date,
     default: () => Date.now(),
@@ -21,4 +21,3 @@ const messageSchema = new Schema({
 });
 
 export const messageModel = mongoose.model("DirectMessage", messageSchema);
-
