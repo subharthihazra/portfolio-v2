@@ -79,6 +79,16 @@ export const action: ActionFunction = async ({ request }) => {
         !isValidEmail ? `Email:\n[ ${email} ]\n\n` : ""
       }${message}`;
 
+      console.log("fdt", String(process.env.PRIVATE_FORMSUBMIT_URL), {
+        name,
+        ...(isValidEmail && { email }),
+        message: messageToDM,
+        _url: "https://subharthi.me",
+        _subject: "New DM at Portfolio!",
+        _captcha: "false",
+        _template: "box",
+      });
+
       void axios
         .post(String(process.env.PRIVATE_FORMSUBMIT_URL), {
           name,
