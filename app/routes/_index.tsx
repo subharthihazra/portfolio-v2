@@ -104,6 +104,12 @@ export const action: ActionFunction = async ({ request }) => {
           {
             headers: {
               "Content-Type": "application/x-www-form-urlencoded",
+              "User-Agent":
+                "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/115.0.0.0 Safari/537.36",
+              Referer: "https://subharthi.me",
+              Origin: "https://subharthi.me",
+              Accept:
+                "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
             },
           }
         )
