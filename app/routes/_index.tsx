@@ -90,15 +90,23 @@ export const action: ActionFunction = async ({ request }) => {
       });
 
       void axios
-        .post(String(process.env.PRIVATE_FORMSUBMIT_URL), {
-          name,
-          ...(isValidEmail && { email }),
-          message: messageToDM,
-          _url: "https://subharthi.me",
-          _subject: "New DM at Portfolio!",
-          _captcha: "false",
-          _template: "box",
-        })
+        .post(
+          String(process.env.PRIVATE_FORMSUBMIT_URL),
+          {
+            name,
+            ...(isValidEmail && { email }),
+            message: messageToDM,
+            _url: "https://subharthi.me",
+            _subject: "New DM at Portfolio!",
+            _captcha: "false",
+            _template: "box",
+          },
+          {
+            headers: {
+              "Content-Type": "application/x-www-form-urlencoded",
+            },
+          }
+        )
         .catch((err) => {
           console.error("Fire-and-forget Axios error:", err);
         });
