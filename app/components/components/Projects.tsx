@@ -16,6 +16,16 @@ type project = {
 };
 const projects: project[] = [
   {
+    name: "Lead AI Agent: Lead Qualification Chatbot",
+    descrption:
+      "Built an industry-agnostic Al-powered lead qualification system that simulates human-like conversations, classifies intent (Hot, Cold, Invalid), extracts structured metadata, and maintains persistent transcripts. Designed with multi-mode support (CLI, API, Web Dashboard) and configurable industry profiles, integrating LLM via Langchain for smart prompt-based dialogue and lead classification.",
+    tech: ["Node.js", "React.js", "Langchain", "LLM", "Socket.IO"],
+    repoLink: "https://github.com/subharthihazra/lead-agent",
+    liveLink: "https://leadagent.subharthi.me/",
+    videoLink: "https://youtu.be/4KNuf7NY-KU",
+    linkType: "repoLink",
+  },
+  {
     name: "Oauth2.0 Client Library",
     descrption:
       "Developed a TypeScript OAuth2 client library supporting both client-side and server-side implementations, with Zod for validation, ensuring type safety and robust error handling. Integrated PKCE for secure authorization and ensured compatibility with Kinde, Auth0 and Clerk.",
@@ -96,7 +106,9 @@ function Card({ data }: { data: project }) {
           </div>
         </Link>
       </div>
-      <div className="text-gray-400 text-sm md:text-base text-justify">{data?.descrption}</div>
+      <div className="text-gray-400 text-sm md:text-base text-justify">
+        {data?.descrption}
+      </div>
       <div className="text-white flex flex-row font-dmmono flex-wrap text-xs md:text-sm">
         {data?.tech?.map((item, i) => (
           <>

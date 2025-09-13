@@ -11,13 +11,30 @@ type experience = {
 };
 const experiences: experience[] = [
   {
+    name: "GrowEasy, Gurugram, India",
+    designation: "Software Developer Intern ( Remote )",
+    descrption:
+      "Built an Al-powered employee management app for MSMEs with a pixel-perfect, responsive UI in React (Next.js) and robust Node.js APIs integrated with PostgreSQL for HR workflows. Engineered an agentic WhatsApp-operable chatbot using LangChain with LLMs to answer queries and trigger backend actions, keeping workflows conversational and automated. Deployed and optimized on AWS EC2 with Nginx as reverse proxy and S3 for storage, ensuring secure, reliable hosting.",
+    time: "Jul 2025 - Present",
+    tech: [
+      "Next.js",
+      "Node.js",
+      "PostgreSQL",
+      "LangChain",
+      "LLM",
+      "Agentic Workflows",
+      "WhatsApp API",
+      "AWS",
+    ],
+  },
+  {
     name: "NoScrubs Inc, Austin, USA",
     designation: "Software Development Intern ( Remote )",
     descrption:
       "Implemented OAuth for secure phone number verification, improving user authentication workflows. Integrated Stripe to enable saving and managing user payment methods, streamlining experience. Developed and enhanced core application features using Ruby on Rails for backend and Expo (React Native) for the mobile and web interface.",
     time: "Oct - Dec 2024",
     link: "https://noscrubs.io/",
-    tech: ["Ruby on Rails", "React Native (expo)", "Postgresql"],
+    tech: ["Ruby on Rails", "React Native (expo)", "Postgresql", "Stripe", "OAuth" ],
   },
   {
     name: "Asambhav, Ahmedabad, India",
@@ -72,7 +89,9 @@ function Card({ data }: { data: experience }) {
       <div className="text-md md:text-lg text-emerald-100">
         {data.designation}
       </div>
-      <div className="text-gray-400 text-sm md:text-base text-justify">{data?.descrption}</div>
+      <div className="text-gray-400 text-sm md:text-base text-justify">
+        {data?.descrption}
+      </div>
       <div className="text-white flex flex-row font-dmmono flex-wrap text-xs md:text-sm">
         {data?.tech?.map((item, i) => (
           <>
