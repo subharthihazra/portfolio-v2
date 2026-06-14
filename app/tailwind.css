@@ -53,6 +53,21 @@ body {
   animation: float-fast 20s infinite ease-in-out;
 }
 
+@keyframes bloom-in {
+  0% {
+    transform: scale(0.2);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.animate-bloom-in {
+  animation: bloom-in 2.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
 .custom-background {
   background-repeat: no-repeat;
 }
