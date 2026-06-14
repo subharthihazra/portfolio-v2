@@ -21,7 +21,7 @@ const projects: project[] = [
       "Built an industry-agnostic Al-powered lead qualification system that simulates human-like conversations, classifies intent (Hot, Cold, Invalid), extracts structured metadata, and maintains persistent transcripts. Designed with multi-mode support (CLI, API, Web Dashboard) and configurable industry profiles, integrating LLM via Langchain for smart prompt-based dialogue and lead classification.",
     tech: ["Node.js", "React.js", "Langchain", "LLM", "Socket.IO"],
     repoLink: "https://github.com/subharthihazra/lead-agent",
-    liveLink: "https://leadagent.subharthi.me/",
+    liveLink: "https://leadagent.subharthi.site/",
     videoLink: "https://youtu.be/4KNuf7NY-KU",
     linkType: "repoLink",
   },

@@ -20,6 +20,8 @@ import Skills from "~/components/components/Skills";
 import toast, { Toaster } from "react-hot-toast";
 import { useEffect } from "react";
 
+const siteBaseUrl = "https://subharthi.site";
+
 export const loader = async () => {
   await connectToDatabase();
   return json({
@@ -83,7 +85,7 @@ export const action: ActionFunction = async ({ request }) => {
         name,
         ...(isValidEmail && { email }),
         message: messageToDM,
-        _url: "https://subharthi.me",
+        _url: siteBaseUrl,
         _subject: "New DM at Portfolio!",
         _captcha: "false",
         _template: "box",
@@ -96,7 +98,7 @@ export const action: ActionFunction = async ({ request }) => {
             name,
             ...(isValidEmail && { email }),
             message: messageToDM,
-            _url: "https://subharthi.me",
+            _url: siteBaseUrl,
             _subject: "New DM at Portfolio!",
             _captcha: "false",
             _template: "box",
@@ -106,8 +108,8 @@ export const action: ActionFunction = async ({ request }) => {
               "Content-Type": "application/x-www-form-urlencoded",
               "User-Agent":
                 "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/115.0.0.0 Safari/537.36",
-              Referer: "https://subharthi.me",
-              Origin: "https://subharthi.me",
+              Referer: siteBaseUrl,
+              Origin: siteBaseUrl,
               Accept:
                 "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
             },
@@ -132,9 +134,9 @@ export const meta: MetaFunction = () => {
   return [
     { title: "Subharthi Hazra | Portfolio" },
     { name: "description", content: "Welcome to My Portfolio!" },
-    { property: "og:image", content: "https://subharthi.me/api/og" },
+    { property: "og:image", content: `${siteBaseUrl}/api/og` },
     { property: "og:type", content: "website" },
-    { property: "og:url", content: "https://subharthi.me" },
+    { property: "og:url", content: siteBaseUrl },
   ];
 };
 
