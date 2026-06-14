@@ -6,7 +6,7 @@ import Socials from "./Socials";
 export default function Hero({ data }: { data?: { resumeUrl?: string } }) {
   return (
     <div className="place-items-center my-10 md:my-20 flex flex-col gap-5 md:gap-10">
-      <div className="w-16 md:w-20 aspect-square rounded-full overflow-hidden">
+      <div className="w-20 md:w-24 aspect-square rounded-full overflow-hidden">
         <img src={myPic} alt="My DP" />
       </div>
       <div>
