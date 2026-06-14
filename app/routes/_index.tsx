@@ -20,7 +20,7 @@ import Skills from "~/components/components/Skills";
 import toast, { Toaster } from "react-hot-toast";
 import { useEffect } from "react";
 
-const siteBaseUrl = "https://www.subharthi.site";
+const siteBaseUrl = "https://subharthi.site";
 
 export const loader = async () => {
   await connectToDatabase();

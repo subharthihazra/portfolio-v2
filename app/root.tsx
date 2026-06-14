@@ -27,6 +27,10 @@ export const links: LinksFunction = () => [
     href: "/ico.png",
     type: "image/x-icon",
   },
+  {
+    rel: "canonical",
+    href: "https://www.subharthi.site",
+  },
 ];
 
 export function Layout({ children }: { children: React.ReactNode }) {
@@ -58,9 +62,7 @@ export function ErrorBoundary() {
   return isRouteErrorResponse(error) && error.status === 404 ? (
     <div className="text-center min-h-screen flex flex-col place-content-center px-6">
       <h1 className="text-5xl font-bold mb-4">4&#128527;4</h1>
-      <p className="text-lg text-slate-300">
-        Why are you here, homie?
-      </p>
+      <p className="text-lg text-slate-300">Why are you here, homie?</p>
       <a
         href="/"
         className="mt-6 inline-block text-emerald-400 underline hover:text-emerald-300"
