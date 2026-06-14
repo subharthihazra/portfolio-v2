@@ -12,12 +12,13 @@ export default function Hero({
 }) {
   return (
     <div className="place-items-center my-10 md:my-20 flex flex-col gap-5 md:gap-10">
-      <div
-        className="w-20 md:w-24 aspect-square rounded-full overflow-hidden cursor-pointer"
+      <button
+        className="w-20 md:w-24 aspect-square rounded-full overflow-hidden cursor-pointer focus:outline-none focus:ring-2 focus:ring-yellow-500 border-0 p-0 bg-transparent block"
         onClick={onDpClick}
+        aria-label="Toggle background easter egg"
       >
-        <img src={myPic} alt="My DP" />
-      </div>
+        <img src={myPic} alt="My DP" className="w-full h-full object-cover" />
+      </button>
       <div>
         <h1 className="text-2xl md:text-5xl font-thin text-center">
           {"I'm"} <span>Subharthi Hazra</span>, a{" "}

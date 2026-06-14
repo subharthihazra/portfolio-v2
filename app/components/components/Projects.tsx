@@ -126,22 +126,22 @@ function Card({ data }: { data: project }) {
       </div>
       <div className="flex flex-row gap-4 flex-wrap">
         {data.repoLink && (
-          <LinkIconButton link={data.repoLink} key="link1">
+          <LinkIconButton link={data.repoLink} key="link1" ariaLabel={`GitHub repository for ${data.name}`}>
             <FaGithub />
           </LinkIconButton>
         )}
         {data.videoLink && (
-          <LinkIconButton link={data.videoLink} key="link2">
+          <LinkIconButton link={data.videoLink} key="link2" ariaLabel={`Video demo for ${data.name}`}>
             <FaPlayCircle />
           </LinkIconButton>
         )}
         {data.docsLink && (
-          <LinkIconButton link={data.docsLink} key="link3">
+          <LinkIconButton link={data.docsLink} key="link3" ariaLabel={`Documentation for ${data.name}`}>
             <IoDocumentTextOutline />
           </LinkIconButton>
         )}
         {data.liveLink && (
-          <LinkIconButton link={data.liveLink} key="link4">
+          <LinkIconButton link={data.liveLink} key="link4" ariaLabel={`Live demo site for ${data.name}`}>
             <HiArrowUpRight />
           </LinkIconButton>
         )}
@@ -153,12 +153,14 @@ function Card({ data }: { data: project }) {
 function LinkIconButton({
   link,
   children,
+  ariaLabel,
 }: {
   link?: string;
   children: React.ReactNode;
+  ariaLabel?: string;
 }) {
   return (
-    <Link href={link}>
+    <Link href={link} aria-label={ariaLabel}>
       <div className="bg-yellow-950 rounded-full h-8 md:h-10 w-8 md:w-10 flex flex-row justify-center place-items-center text-xl md:text-2xl">
         {children}
       </div>

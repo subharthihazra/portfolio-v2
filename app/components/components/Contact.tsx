@@ -62,18 +62,21 @@ export default function Contact({ reset = true }: { reset?: boolean }) {
             className="bg-gray-900 border-0 outline-none w-full p-3 text-lg"
             placeholder="your name (optional)"
             name="yourname"
+            aria-label="Your name (optional)"
           />
           <input
             type="text"
             className="bg-gray-900 border-0 outline-none w-full p-3 text-lg"
             placeholder="your email (optional)"
             name="youremail"
+            aria-label="Your email address (optional)"
           />
           <textarea
             className="bg-gray-900 border-0 outline-none w-full resize-none p-3 text-lg"
             cols={5}
             placeholder="your message ..."
             name="yourmessage"
+            aria-label="Your message"
           />
           <div className="w-full py-3 flex flex-row justify-end">
             <button
@@ -82,6 +85,7 @@ export default function Contact({ reset = true }: { reset?: boolean }) {
               className="ml-auto w-10 h-10 text-2xl bg-rose-900 rounded-full place-items-center disabled:bg-rose-950 disabled:text-gray-700"
               ref={submitRef}
               disabled={!hasContent || isSubmitting}
+              aria-label="Send message"
             >
               <RiSendPlaneFill />
             </button>

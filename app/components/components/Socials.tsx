@@ -5,16 +5,16 @@ import { IoMail } from "react-icons/io5";
 export default function Socials() {
   return (
     <div className="flex flex-row gap-4 flex-wrap justify-center">
-      <RoundIconButton link="https://github.com/subharthihazra">
+      <RoundIconButton link="https://github.com/subharthihazra" ariaLabel="GitHub Profile">
         <FaGithub />
       </RoundIconButton>
-      <RoundIconButton link="https://twitter.com/SubharthiHazra">
+      <RoundIconButton link="https://twitter.com/SubharthiHazra" ariaLabel="Twitter Profile">
         <FaXTwitter />
       </RoundIconButton>
-      <RoundIconButton link="https://www.linkedin.com/in/subharthihazra/">
+      <RoundIconButton link="https://www.linkedin.com/in/subharthihazra/" ariaLabel="LinkedIn Profile">
         <FaLinkedinIn />
       </RoundIconButton>
-      <RoundIconButton link="mailto:subharthi75@gmail.com" newtab={false}>
+      <RoundIconButton link="mailto:subharthi75@gmail.com" newtab={false} ariaLabel="Send Email to Subharthi">
         <IoMail />
       </RoundIconButton>
     </div>
@@ -25,13 +25,15 @@ function RoundIconButton({
   link,
   children,
   newtab,
+  ariaLabel,
 }: {
   link?: string;
   children: React.ReactNode;
   newtab?: boolean;
+  ariaLabel?: string;
 }) {
   return (
-    <Link href={link} newtab={newtab}>
+    <Link href={link} newtab={newtab} aria-label={ariaLabel}>
       <div className="bg-white rounded-full h-10 md:h-12 w-10 md:w-12 text-black flex flex-row justify-center place-items-center text-xl md:text-2xl">
         {children}
       </div>
