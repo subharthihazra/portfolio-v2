@@ -133,7 +133,7 @@ export const action: ActionFunction = async ({ request }) => {
 export const meta: MetaFunction = () => {
   return [
     { title: "Subharthi Hazra | Portfolio" },
-    { name: "description", content: "Welcome to My Portfolio!" },
+    { name: "description", content: "Let's connect! 🤝🏾" },
     { property: "og:image", content: `${siteBaseUrl}/api/og` },
     { property: "og:type", content: "website" },
     { property: "og:url", content: siteBaseUrl },
