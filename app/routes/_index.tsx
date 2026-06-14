@@ -146,6 +146,18 @@ export default function Index() {
   const navigate = useNavigate();
   const location = useLocation();
   const [isEasterEgg, setIsEasterEgg] = useState(false);
+  const [renderEasterEgg, setRenderEasterEgg] = useState(false);
+
+  useEffect(() => {
+    if (isEasterEgg) {
+      setRenderEasterEgg(true);
+    } else {
+      const timer = setTimeout(() => {
+        setRenderEasterEgg(false);
+      }, 1500);
+      return () => clearTimeout(timer);
+    }
+  }, [isEasterEgg]);
 
   useEffect(() => {
     if (actionData?.message === "success") {
@@ -172,24 +184,28 @@ export default function Index() {
           isEasterEgg ? "opacity-100" : "opacity-0"
         }`}
       >
-        {/* Subtle retro dot pattern for texture */}
-        <div className="absolute inset-0 bg-[radial-gradient(#ffffff08_1px,transparent_1px)] [background-size:20px_20px] opacity-70" />
-        
-        {/* Sleek digital grids */}
-        <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff03_1px,transparent_1px),linear-gradient(to_bottom,#ffffff03_1px,transparent_1px)] bg-[size:40px_40px] opacity-50" />
+        {renderEasterEgg && (
+          <>
+            {/* Subtle retro dot pattern for texture */}
+            <div className="absolute inset-0 bg-[radial-gradient(#ffffff08_1px,transparent_1px)] [background-size:20px_20px] opacity-70" />
+            
+            {/* Sleek digital grids */}
+            <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff03_1px,transparent_1px),linear-gradient(to_bottom,#ffffff03_1px,transparent_1px)] bg-[size:40px_40px] opacity-50" />
 
-        {/* Dynamic Colorful Aura Lights */}
-        {/* Aura 1: Neon Purple/Violet */}
-        <div className="absolute top-[10%] left-[15%] w-[45vw] h-[45vw] rounded-full bg-gradient-to-tr from-purple-600/20 to-violet-800/10 blur-[100px] md:blur-[140px] animate-float-slow" />
+            {/* Dynamic Colorful Aura Lights */}
+            {/* Aura 1: Neon Purple/Violet */}
+            <div className="absolute top-[10%] left-[15%] w-[45vw] h-[45vw] rounded-full bg-gradient-to-tr from-purple-600/20 to-violet-800/10 blur-[100px] md:blur-[140px] animate-float-slow will-change-transform" />
 
-        {/* Aura 2: Deep Blue/Indigo */}
-        <div className="absolute bottom-[10%] right-[10%] w-[50vw] h-[50vw] rounded-full bg-gradient-to-br from-indigo-700/15 to-blue-600/5 blur-[120px] md:blur-[160px] animate-float-medium" />
+            {/* Aura 2: Deep Blue/Indigo */}
+            <div className="absolute bottom-[10%] right-[10%] w-[50vw] h-[50vw] rounded-full bg-gradient-to-br from-indigo-700/15 to-blue-600/5 blur-[120px] md:blur-[160px] animate-float-medium will-change-transform" />
 
-        {/* Aura 3: Warm Orange/Rose gold */}
-        <div className="absolute top-[40%] right-[15%] w-[35vw] h-[35vw] rounded-full bg-gradient-to-bl from-rose-500/15 via-orange-600/10 to-transparent blur-[90px] md:blur-[130px] animate-float-fast" />
+            {/* Aura 3: Warm Orange/Rose gold */}
+            <div className="absolute top-[40%] right-[15%] w-[35vw] h-[35vw] rounded-full bg-gradient-to-bl from-rose-500/15 via-orange-600/10 to-transparent blur-[90px] md:blur-[130px] animate-float-fast will-change-transform" />
 
-        {/* Aura 4: Mystic Teal/Emerald */}
-        <div className="absolute bottom-[20%] left-[10%] w-[40vw] h-[40vw] rounded-full bg-gradient-to-tr from-teal-500/15 via-emerald-600/5 to-transparent blur-[110px] md:blur-[150px] animate-float-slow" />
+            {/* Aura 4: Mystic Teal/Emerald */}
+            <div className="absolute bottom-[20%] left-[10%] w-[40vw] h-[40vw] rounded-full bg-gradient-to-tr from-teal-500/15 via-emerald-600/5 to-transparent blur-[110px] md:blur-[150px] animate-float-slow will-change-transform" />
+          </>
+        )}
       </div>
 
       <div className="relative z-10 max-w-3xl px-6 md:mx-auto">
