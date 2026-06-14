@@ -77,9 +77,8 @@ export const action: ActionFunction = async ({ request }) => {
 
       const isValidEmail = z.string().email().safeParse(email).success;
 
-      const messageToDM = `${
-        !isValidEmail ? `Email:\n[ ${email} ]\n\n` : ""
-      }${message}`;
+      const messageToDM = `${!isValidEmail ? `Email:\n[ ${email} ]\n\n` : ""
+        }${message}`;
 
       console.log("fdt", String(process.env.PRIVATE_FORMSUBMIT_URL), {
         name,
@@ -131,15 +130,17 @@ export const action: ActionFunction = async ({ request }) => {
 };
 
 export const meta: MetaFunction = () => {
-  const description = "Explore the personal portfolio of Subharthi Hazra, a Software Developer from Kolkata, India specializing in React, Next.js, Node.js, and Agentic AI Workflows.";
-  const title = "Subharthi Hazra | Software Developer Portfolio";
+
+  const title = "Subharthi Hazra | Portfolio";
+  const description = "Let's connect! 🤝🏾";
+
   return [
     { title },
     { name: "description", content: description },
     { name: "keywords", content: "Subharthi Hazra, Software Developer, Web Developer, Portfolio, React, Next.js, Node.js, LangChain, Kolkata, India" },
     { name: "author", content: "Subharthi Hazra" },
     { name: "robots", content: "index, follow" },
-    
+
     // Open Graph
     { property: "og:title", content: title },
     { property: "og:description", content: description },
@@ -195,16 +196,15 @@ export default function Index() {
   return (
     <div className="custom-background">
       {/* Easter Egg Background Effects */}
-      <div 
-        className={`fixed inset-0 z-0 transition-opacity duration-[1500ms] ease-in-out pointer-events-none bg-[#030207] ${
-          isEasterEgg ? "opacity-100" : "opacity-0"
-        }`}
+      <div
+        className={`fixed inset-0 z-0 transition-opacity duration-[1500ms] ease-in-out pointer-events-none bg-[#030207] ${isEasterEgg ? "opacity-100" : "opacity-0"
+          }`}
       >
         {renderEasterEgg && (
           <>
             {/* Subtle retro dot pattern for texture */}
             <div className="absolute inset-0 bg-[radial-gradient(#ffffff08_1px,transparent_1px)] [background-size:20px_20px] opacity-70" />
-            
+
             {/* Sleek digital grids */}
             <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff03_1px,transparent_1px),linear-gradient(to_bottom,#ffffff03_1px,transparent_1px)] bg-[size:40px_40px] opacity-50" />
 
