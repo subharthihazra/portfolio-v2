@@ -5,6 +5,9 @@ import { join } from "path";
 import { Resvg } from "@resvg/resvg-js";
 
 const suseFont = readFileSync(join(process.cwd(), "app/assets/fonts/suse.ttf"));
+const emojiFont = readFileSync(
+  join(process.cwd(), "app/assets/fonts/NotoEmoji-Regular.ttf"),
+);
 const OUTPUT_PATH = join(process.cwd(), "app/assets/og-image.png");
 
 const generateSvg = async () => {
@@ -36,14 +39,14 @@ const generateSvg = async () => {
       >
         <div
           style={{
-            width: "140px",
+            width: "230px",
             height: "5px",
-            backgroundColor: "#ff7b4f",
+            backgroundColor: "#ec4899",
           }}
         ></div>
         <div
           style={{
-            fontSize: 60,
+            fontSize: 100,
             fontWeight: 700,
             color: "#f1f5f9",
           }}
@@ -52,18 +55,18 @@ const generateSvg = async () => {
         </div>
         <div
           style={{
-            fontSize: 40,
+            fontSize: 50,
             fontWeight: 500,
-            color: "#ec4899",
+            color: "#2db381",
           }}
         >
-          {`a dev from  india ;)`}
+          {`a Dev from  India ❤️`}
         </div>
       </div>
     </div>,
     {
-      width: 570,
-      height: 250,
+      width: 1200,
+      height: 630,
       fonts: [
         {
           name: "Suse",
@@ -71,8 +74,14 @@ const generateSvg = async () => {
           weight: 400,
           style: "normal",
         },
+        {
+          name: "Emoji",
+          data: emojiFont,
+          weight: 400,
+          style: "normal",
+        },
       ],
-    }
+    },
   );
 };
 
