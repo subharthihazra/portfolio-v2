@@ -58,9 +58,14 @@ const generateSvg = async () => {
             fontSize: 50,
             fontWeight: 500,
             color: "#2db381",
+            display: "flex",
+            gap: 18,
           }}
         >
-          {`a Dev from  India ❤️`}
+          <span>a Dev from  India</span>
+          <span style={{
+            color: "yellow",
+          }}>:D</span>
         </div>
       </div>
     </div>,
