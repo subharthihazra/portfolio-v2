@@ -203,23 +203,43 @@ export default function Index() {
         {renderEasterEgg && (
           <>
             {/* Subtle retro dot pattern for texture */}
-            <div className="absolute inset-0 bg-[radial-gradient(#ffffff08_1px,transparent_1px)] [background-size:20px_20px] opacity-70" />
+            <div className="absolute inset-0 bg-[radial-gradient(#ffffff0a_1px,transparent_1px)] [background-size:20px_20px] opacity-80" />
 
             {/* Sleek digital grids */}
             <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff03_1px,transparent_1px),linear-gradient(to_bottom,#ffffff03_1px,transparent_1px)] bg-[size:40px_40px] opacity-50" />
 
-            {/* Dynamic Colorful Aura Lights */}
+            {/* Dynamic Colorful Aura Lights (Vector Off-Center Gradients with soft blur to prevent edges and aliasing) */}
             {/* Aura 1: Neon Purple/Violet */}
-            <div className="absolute top-[10%] left-[15%] w-[75vw] h-[75vw] md:w-[45vw] md:h-[45vw] rounded-full bg-gradient-to-tr from-purple-600/20 to-violet-800/10 blur-[60px] md:blur-[140px] animate-float-slow will-change-transform" />
+            <div 
+              className="absolute top-[5%] left-[10%] w-[90vw] h-[90vw] md:w-[60vw] md:h-[60vw] rounded-full blur-[40px] md:blur-[70px] animate-float-slow will-change-transform" 
+              style={{
+                backgroundImage: 'radial-gradient(circle at 35% 35%, rgba(168, 85, 247, 0.42) 0%, rgba(168, 85, 247, 0.12) 50%, rgba(168, 85, 247, 0) 90%)'
+              }}
+            />
 
             {/* Aura 2: Deep Blue/Indigo */}
-            <div className="absolute bottom-[10%] right-[10%] w-[80vw] h-[80vw] md:w-[50vw] md:h-[50vw] rounded-full bg-gradient-to-br from-indigo-700/15 to-blue-600/5 blur-[70px] md:blur-[160px] animate-float-medium will-change-transform" />
+            <div 
+              className="absolute bottom-[5%] right-[5%] w-[100vw] h-[100vw] md:w-[70vw] md:h-[70vw] rounded-full blur-[45px] md:blur-[75px] animate-float-medium will-change-transform" 
+              style={{
+                backgroundImage: 'radial-gradient(circle at 65% 35%, rgba(99, 102, 241, 0.38) 0%, rgba(99, 102, 241, 0.1) 50%, rgba(99, 102, 241, 0) 90%)'
+              }}
+            />
 
             {/* Aura 3: Warm Orange/Rose gold */}
-            <div className="absolute top-[40%] right-[15%] w-[70vw] h-[70vw] md:w-[35vw] md:h-[35vw] rounded-full bg-gradient-to-bl from-rose-500/15 via-orange-600/10 to-transparent blur-[50px] md:blur-[130px] animate-float-fast will-change-transform" />
+            <div 
+              className="absolute top-[35%] right-[10%] w-[85vw] h-[85vw] md:w-[55vw] md:h-[55vw] rounded-full blur-[35px] md:blur-[65px] animate-float-fast will-change-transform" 
+              style={{
+                backgroundImage: 'radial-gradient(circle at 35% 65%, rgba(244, 63, 94, 0.38) 0%, rgba(244, 63, 94, 0.1) 50%, rgba(244, 63, 94, 0) 90%)'
+              }}
+            />
 
             {/* Aura 4: Mystic Teal/Emerald */}
-            <div className="absolute bottom-[20%] left-[10%] w-[75vw] h-[75vw] md:w-[40vw] md:h-[40vw] rounded-full bg-gradient-to-tr from-teal-500/15 via-emerald-600/5 to-transparent blur-[65px] md:blur-[150px] animate-float-slow will-change-transform" />
+            <div 
+              className="absolute bottom-[15%] left-[5%] w-[90vw] h-[90vw] md:w-[60vw] md:h-[60vw] rounded-full blur-[40px] md:blur-[70px] animate-float-slow will-change-transform" 
+              style={{
+                backgroundImage: 'radial-gradient(circle at 65% 65%, rgba(20, 184, 166, 0.38) 0%, rgba(20, 184, 166, 0.1) 50%, rgba(20, 184, 166, 0) 90%)'
+              }}
+            />
           </>
         )}
       </div>
