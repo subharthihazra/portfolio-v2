@@ -3,10 +3,19 @@ import { HiArrowUpRight } from "react-icons/hi2";
 import Link from "../ui/Link";
 import Socials from "./Socials";
 
-export default function Hero({ data }: { data?: { resumeUrl?: string } }) {
+export default function Hero({
+  data,
+  onDpClick,
+}: {
+  data?: { resumeUrl?: string };
+  onDpClick?: () => void;
+}) {
   return (
     <div className="place-items-center my-10 md:my-20 flex flex-col gap-5 md:gap-10">
-      <div className="w-20 md:w-24 aspect-square rounded-full overflow-hidden">
+      <div
+        className="w-20 md:w-24 aspect-square rounded-full overflow-hidden cursor-pointer"
+        onClick={onDpClick}
+      >
         <img src={myPic} alt="My DP" />
       </div>
       <div>

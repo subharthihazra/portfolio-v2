@@ -10,6 +10,49 @@ body {
   background-color: #010b15;
 }
 
+@keyframes float-slow {
+  0%, 100% {
+    transform: translate(0px, 0px) scale(1) rotate(0deg);
+  }
+  33% {
+    transform: translate(30px, -50px) scale(1.08) rotate(120deg);
+  }
+  66% {
+    transform: translate(-20px, 20px) scale(0.95) rotate(240deg);
+  }
+}
+
+@keyframes float-medium {
+  0%, 100% {
+    transform: translate(0px, 0px) scale(1) rotate(0deg);
+  }
+  50% {
+    transform: translate(-40px, 40px) scale(1.12) rotate(-180deg);
+  }
+}
+
+@keyframes float-fast {
+  0%, 100% {
+    transform: translate(0px, 0px) scale(1) rotate(0deg);
+  }
+  40% {
+    transform: translate(40px, 20px) scale(0.92) rotate(90deg);
+  }
+  70% {
+    transform: translate(-30px, -30px) scale(1.05) rotate(270deg);
+  }
+}
+
+.animate-float-slow {
+  animation: float-slow 25s infinite ease-in-out;
+}
+.animate-float-medium {
+  animation: float-medium 18s infinite ease-in-out;
+}
+.animate-float-fast {
+  animation: float-fast 14s infinite ease-in-out;
+}
+
 .custom-background {
   background-repeat: no-repeat;
 }

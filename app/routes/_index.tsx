@@ -18,7 +18,7 @@ import Hero from "~/components/components/Hero";
 import Projects from "~/components/components/Projects";
 import Skills from "~/components/components/Skills";
 import toast, { Toaster } from "react-hot-toast";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 const siteBaseUrl = "https://subharthi.site";
 
@@ -145,6 +145,7 @@ export default function Index() {
   const actionData = useActionData<typeof action>();
   const navigate = useNavigate();
   const location = useLocation();
+  const [isEasterEgg, setIsEasterEgg] = useState(false);
 
   useEffect(() => {
     if (actionData?.message === "success") {
@@ -165,9 +166,35 @@ export default function Index() {
 
   return (
     <div className="custom-background">
-      <div className="max-w-3xl px-6 md:mx-auto">
+      {/* Easter Egg Background Effects */}
+      <div 
+        className={`fixed inset-0 transition-opacity duration-[1500ms] ease-in-out pointer-events-none bg-[#030207] ${
+          isEasterEgg ? "opacity-100" : "opacity-0"
+        }`}
+      >
+        {/* Subtle retro dot pattern for texture */}
+        <div className="absolute inset-0 bg-[radial-gradient(#ffffff08_1px,transparent_1px)] [background-size:20px_20px] opacity-70" />
+        
+        {/* Sleek digital grids */}
+        <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff03_1px,transparent_1px),linear-gradient(to_bottom,#ffffff03_1px,transparent_1px)] bg-[size:40px_40px] opacity-50" />
+
+        {/* Dynamic Colorful Aura Lights */}
+        {/* Aura 1: Neon Purple/Violet */}
+        <div className="absolute top-[10%] left-[15%] w-[45vw] h-[45vw] rounded-full bg-gradient-to-tr from-purple-600/20 to-violet-800/10 blur-[100px] md:blur-[140px] animate-float-slow" />
+
+        {/* Aura 2: Deep Blue/Indigo */}
+        <div className="absolute bottom-[10%] right-[10%] w-[50vw] h-[50vw] rounded-full bg-gradient-to-br from-indigo-700/15 to-blue-600/5 blur-[120px] md:blur-[160px] animate-float-medium" />
+
+        {/* Aura 3: Warm Orange/Rose gold */}
+        <div className="absolute top-[40%] right-[15%] w-[35vw] h-[35vw] rounded-full bg-gradient-to-bl from-rose-500/15 via-orange-600/10 to-transparent blur-[90px] md:blur-[130px] animate-float-fast" />
+
+        {/* Aura 4: Mystic Teal/Emerald */}
+        <div className="absolute bottom-[20%] left-[10%] w-[40vw] h-[40vw] rounded-full bg-gradient-to-tr from-teal-500/15 via-emerald-600/5 to-transparent blur-[110px] md:blur-[150px] animate-float-slow" />
+      </div>
+
+      <div className="relative z-10 max-w-3xl px-6 md:mx-auto">
         <Header />
-        <Hero data={{ resumeUrl: ENV?.resumeUrl }} />
+        <Hero data={{ resumeUrl: ENV?.resumeUrl }} onDpClick={() => setIsEasterEgg((prev) => !prev)} />
         <Experiences />
         <Projects />
         <Skills />
