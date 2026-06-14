@@ -12,7 +12,7 @@ export default function Hero({ data }: { data?: { resumeUrl?: string } }) {
       <div>
         <div className="text-2xl md:text-5xl font-thin text-center">
           {"I'm"} <span>Subharthi Hazra</span>, a{" "}
-          <span>Software Developer</span> from Kolkata, India !
+          <span>Software Developer</span> from India !
         </div>
       </div>
       <div className="place-items-center flex flex-col gap-4">
