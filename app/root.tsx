@@ -29,7 +29,7 @@ export const links: LinksFunction = () => [
   },
   {
     rel: "canonical",
-    href: "https://www.subharthi.site",
+    href: "https://subharthi.site",
   },
 ];
 
