@@ -131,12 +131,28 @@ export const action: ActionFunction = async ({ request }) => {
 };
 
 export const meta: MetaFunction = () => {
+  const description = "Explore the personal portfolio of Subharthi Hazra, a Software Developer from Kolkata, India specializing in React, Next.js, Node.js, and Agentic AI Workflows.";
+  const title = "Subharthi Hazra | Software Developer Portfolio";
   return [
-    { title: "Subharthi Hazra | Portfolio" },
-    { name: "description", content: "Let's connect! 🤝🏾" },
+    { title },
+    { name: "description", content: description },
+    { name: "keywords", content: "Subharthi Hazra, Software Developer, Web Developer, Portfolio, React, Next.js, Node.js, LangChain, Kolkata, India" },
+    { name: "author", content: "Subharthi Hazra" },
+    { name: "robots", content: "index, follow" },
+    
+    // Open Graph
+    { property: "og:title", content: title },
+    { property: "og:description", content: description },
     { property: "og:image", content: `${siteBaseUrl}/api/og` },
     { property: "og:type", content: "website" },
     { property: "og:url", content: siteBaseUrl },
+    { property: "og:site_name", content: "Subharthi Hazra Portfolio" },
+
+    // Twitter
+    { name: "twitter:card", content: "summary_large_image" },
+    { name: "twitter:title", content: title },
+    { name: "twitter:description", content: description },
+    { name: "twitter:image", content: `${siteBaseUrl}/api/og` },
   ];
 };
 

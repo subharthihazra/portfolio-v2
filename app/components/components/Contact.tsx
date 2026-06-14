@@ -40,9 +40,9 @@ export default function Contact({ reset = true }: { reset?: boolean }) {
 
   return (
     <div className="mt-16 md:mt-24" id="textme">
-      <div className="text-2xl md:text-3xl font-light mx-auto border-b border-y-rose-600 w-fit">
+      <h2 className="text-2xl md:text-3xl font-light mx-auto border-b border-y-rose-600 w-fit">
         {`Let's Connect`}
-      </div>
+      </h2>
       <div className="font-light text-gray-400 mt-8 text-center text-sm md:text-md">
         {`If you have any inquiries,
         collaboration proposals, or if you simply want to connect, feel free to

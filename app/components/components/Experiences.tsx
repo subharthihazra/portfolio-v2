@@ -56,9 +56,9 @@ const experiences: experience[] = [
 export default function Experiences() {
   return (
     <div className="mt-16 md:mt-24">
-      <div className="text-2xl md:text-3xl font-light mx-auto border-b border-emerald-500 w-fit">
+      <h2 className="text-2xl md:text-3xl font-light mx-auto border-b border-emerald-500 w-fit">
         Experiences
-      </div>
+      </h2>
       <div className="flex flex-col gap-4 mt-8">
         {experiences?.map((item, i) => (
           <Card key={i} data={item} />
@@ -74,9 +74,9 @@ function Card({ data }: { data: experience }) {
       <div className="flex flex-row justify-between flex-wrap gap-x-4">
         <Link href={data?.link}>
           <div className="flex flex-row justify-between place-items-center gap-2">
-            <div key={data.name} className="text-lg md:text-xl">
+            <h3 key={data.name} className="text-lg md:text-xl font-normal">
               {data.name}
-            </div>
+            </h3>
             {data?.link && (
               <div className="text-md md:text-lg" key={data.link}>
                 <HiArrowUpRight />

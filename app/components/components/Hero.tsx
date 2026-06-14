@@ -19,10 +19,10 @@ export default function Hero({
         <img src={myPic} alt="My DP" />
       </div>
       <div>
-        <div className="text-2xl md:text-5xl font-thin text-center">
+        <h1 className="text-2xl md:text-5xl font-thin text-center">
           {"I'm"} <span>Subharthi Hazra</span>, a{" "}
           <span>Software Developer</span> from Kolkata, India !
-        </div>
+        </h1>
       </div>
       <div className="place-items-center flex flex-col gap-4">
         <div>stay in touch</div>

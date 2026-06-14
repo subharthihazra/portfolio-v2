@@ -76,9 +76,9 @@ const projects: project[] = [
 export default function Projects() {
   return (
     <div className="mt-16 md:mt-24">
-      <div className="text-2xl md:text-3xl font-light mx-auto border-b border-yellow-500 w-fit">
+      <h2 className="text-2xl md:text-3xl font-light mx-auto border-b border-yellow-500 w-fit">
         Projects
-      </div>
+      </h2>
       <div className="flex flex-col gap-4 mt-8">
         {projects?.map((item, i) => (
           <Card key={i} data={item} />
@@ -95,9 +95,9 @@ function Card({ data }: { data: project }) {
       <div className="flex flex-row justify-between">
         <Link href={link!}>
           <div className="flex flex-row justify-between place-items-center gap-2">
-            <div key={data.name} className="text-lg md:text-xl">
+            <h3 key={data.name} className="text-lg md:text-xl font-normal">
               {data?.name}
-            </div>
+            </h3>
             {link && (
               <div className="text-md md:text-lg" key={link}>
                 <HiArrowUpRight />
