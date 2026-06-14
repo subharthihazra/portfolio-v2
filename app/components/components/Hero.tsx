@@ -13,7 +13,7 @@ export default function Hero({
   return (
     <div className="place-items-center my-10 md:my-20 flex flex-col gap-5 md:gap-10">
       <button
-        className="w-20 md:w-24 aspect-square rounded-full overflow-hidden cursor-pointer focus:outline-none focus:ring-2 focus:ring-yellow-500 border-0 p-0 bg-transparent block"
+        className="w-20 md:w-24 aspect-square rounded-full overflow-hidden cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-yellow-500 border-0 p-0 bg-transparent block"
         onClick={onDpClick}
         aria-label="Toggle background easter egg"
       >
