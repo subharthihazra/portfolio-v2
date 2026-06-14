@@ -196,7 +196,7 @@ export default function Index() {
     <div className="custom-background">
       {/* Easter Egg Background Effects */}
       <div 
-        className={`fixed inset-0 transition-opacity duration-[1500ms] ease-in-out pointer-events-none bg-[#030207] ${
+        className={`fixed inset-0 z-0 transition-opacity duration-[1500ms] ease-in-out pointer-events-none bg-[#030207] ${
           isEasterEgg ? "opacity-100" : "opacity-0"
         }`}
       >
@@ -210,16 +210,16 @@ export default function Index() {
 
             {/* Dynamic Colorful Aura Lights */}
             {/* Aura 1: Neon Purple/Violet */}
-            <div className="absolute top-[10%] left-[15%] w-[45vw] h-[45vw] rounded-full bg-gradient-to-tr from-purple-600/20 to-violet-800/10 blur-[100px] md:blur-[140px] animate-float-slow will-change-transform" />
+            <div className="absolute top-[10%] left-[15%] w-[75vw] h-[75vw] md:w-[45vw] md:h-[45vw] rounded-full bg-gradient-to-tr from-purple-600/20 to-violet-800/10 blur-[60px] md:blur-[140px] animate-float-slow will-change-transform" />
 
             {/* Aura 2: Deep Blue/Indigo */}
-            <div className="absolute bottom-[10%] right-[10%] w-[50vw] h-[50vw] rounded-full bg-gradient-to-br from-indigo-700/15 to-blue-600/5 blur-[120px] md:blur-[160px] animate-float-medium will-change-transform" />
+            <div className="absolute bottom-[10%] right-[10%] w-[80vw] h-[80vw] md:w-[50vw] md:h-[50vw] rounded-full bg-gradient-to-br from-indigo-700/15 to-blue-600/5 blur-[70px] md:blur-[160px] animate-float-medium will-change-transform" />
 
             {/* Aura 3: Warm Orange/Rose gold */}
-            <div className="absolute top-[40%] right-[15%] w-[35vw] h-[35vw] rounded-full bg-gradient-to-bl from-rose-500/15 via-orange-600/10 to-transparent blur-[90px] md:blur-[130px] animate-float-fast will-change-transform" />
+            <div className="absolute top-[40%] right-[15%] w-[70vw] h-[70vw] md:w-[35vw] md:h-[35vw] rounded-full bg-gradient-to-bl from-rose-500/15 via-orange-600/10 to-transparent blur-[50px] md:blur-[130px] animate-float-fast will-change-transform" />
 
             {/* Aura 4: Mystic Teal/Emerald */}
-            <div className="absolute bottom-[20%] left-[10%] w-[40vw] h-[40vw] rounded-full bg-gradient-to-tr from-teal-500/15 via-emerald-600/5 to-transparent blur-[110px] md:blur-[150px] animate-float-slow will-change-transform" />
+            <div className="absolute bottom-[20%] left-[10%] w-[75vw] h-[75vw] md:w-[40vw] md:h-[40vw] rounded-full bg-gradient-to-tr from-teal-500/15 via-emerald-600/5 to-transparent blur-[65px] md:blur-[150px] animate-float-slow will-change-transform" />
           </>
         )}
       </div>
